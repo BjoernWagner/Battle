@@ -3,13 +3,14 @@ require 'sinatra/base'
 class Battle < Sinatra::Base
   
   get '/' do
-    @player_1_name = params['player_1_name']
-    @player_2_name = params['player_2_name']
     erb(:index)
   end
 
-  # get '/names' do
-  # end
+  get '/battle' do
+    @player_1_name = params['player_1_name']
+    @player_2_name = params['player_2_name']
+    erb(:battle)
+  end
 
   # start the server if ruby file executed directly
   run! if app_file == $0
